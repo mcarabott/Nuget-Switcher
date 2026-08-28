@@ -123,7 +123,7 @@ foreach ($file in Get-CsProjFiles -Root $RepoRoot) {
 
     $content = [System.IO.File]::ReadAllText($file.FullName)
     $escapedId = [regex]::Escape($PackageId)
-    $pattern = "(?m)^([ \t]*)<PackageReference\s+Include=`"$escapedId`"[^>]*/?>[ \t]*(?=\r?$)"
+    $pattern = "(?m)^([ \t]*)<PackageReference\s+Include=`"$escapedId`"[^>]*/>[ \t]*(?=\r?$)"
     $regex = [System.Text.RegularExpressions.Regex]::new($pattern)
     $regexMatches = $regex.Matches($content)
 
